@@ -7,23 +7,20 @@ global.include = function(file) {
 	return require(abs_path('/' + file));
 }
 
-
-
 const express = require('express');
 const router = include('routes/router');
 
 const port = process.env.PORT || 3000;
-
 
 const app = express();
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(__dirname + "/public"));
-app.use('/',router);
+app.use('/', router);
 
 app.listen(port, () => {
-	console.log("Node application listening on port "+port);
+	console.log("Node application listening on port " + port);
 }); 
 
 
